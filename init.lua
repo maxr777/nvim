@@ -19,7 +19,6 @@ vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent
 
 -- Column at 80 characters
 vim.opt.colorcolumn = "80"
-highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 -- Load plugin manager
 require("config.lazy")

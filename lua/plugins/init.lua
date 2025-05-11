@@ -78,5 +78,14 @@ return {
         automatic_installation = true,
       })
     end
-  }
+  },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    name = "oxocarbon",
+    priority = 1000,
+    config = function()
+      -- Set the colorscheme
+      vim.cmd.colorscheme "oxocarbon"
+    end,
+  },
 }
