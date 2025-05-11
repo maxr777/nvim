@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd(
     callback = function()
       if vim.fn.expand('%:e') == 'java' then
         vim.cmd("silent !google-java-format -i %")
-      elseif vim.fn.expand('%:e') == 'cpp' or vim.fn.expand('%:e') == 'c' then
+      elseif vim.fn.expand('%:e') == 'cpp' or vim.fn.expand('%:e') == 'c' vim.fn.expand('%:e') == 'h' then
         vim.cmd("silent !clang-format -i %")
       elseif vim.fn.expand('%:e') == 'py' then
         vim.cmd("silent !black %")
