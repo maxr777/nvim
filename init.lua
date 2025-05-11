@@ -17,5 +17,9 @@ vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true }
 -- Map the nvim-tree toggle key
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
+-- Column at 80 characters
+vim.opt.colorcolumn = "80"
+highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+
 -- Load plugin manager
 require("config.lazy")

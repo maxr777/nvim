@@ -74,7 +74,7 @@ return {
     dependencies = { 'williamboman/mason.nvim' },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "clangd", "tsserver", "html" },
+        ensure_installed = { "lua_ls", "clangd", "ts_ls", "html" },
         automatic_installation = true,
       })
     end
