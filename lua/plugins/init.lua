@@ -55,8 +55,6 @@ return {
     'neovim/nvim-lspconfig',
     config = function()
       local lspconfig = require("lspconfig")
-
-      -- Example setups (Lua, C/C++, etc.)
       lspconfig.lua_ls.setup({})
       lspconfig.clangd.setup({})
       lspconfig.ts_ls.setup({})
@@ -103,6 +101,6 @@ return {
   },
   {
     'akinsho/toggleterm.nvim', version = "*",
-      opts = {}
+    opts = {}
   },
 }
