@@ -92,12 +92,13 @@ return {
     end,
   },
   {
-    "nyoom-engineering/oxocarbon.nvim",
-    name = "oxocarbon",
-    priority = 1000,
+    'sainnhe/gruvbox-material',
     config = function()
-      -- Set the colorscheme
-      vim.cmd.colorscheme "oxocarbon"
-    end,
+      vim.cmd('colorscheme gruvbox-material')
+      vim.cmd('set background=light')
+      vim.g.gruvbox_material_background = 'soft'
+      vim.g.gruvbox_material_foreground = 'soft'
+      vim.g.gruvbox_material_palette = 'material'
+    end
   },
 }
