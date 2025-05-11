@@ -20,6 +20,26 @@ vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent
 -- Column at 80 characters
 vim.opt.colorcolumn = "80"
 
+vim.api.nvim_create_autocmd(
+  "BufWritePost",
+  {
+    pattern = {"*.java", "*.c", "*.cpp", "*.h", "*.hpp", "*.py", "*.js", "*.go"}, 
+    callback = function()
+      if vim.fn.expand('%:e') == 'java' then
+        vim.cmd("silent !google-java-format -i %")
+      elseif vim.fn.expand('%:e') == 'cpp' or vim.fn.expand('%:e') == 'c' then
+        vim.cmd("silent !clang-format -i %")
+      elseif vim.fn.expand('%:e') == 'py' then
+        vim.cmd("silent !black %")
+      elseif vim.fn.expand('%:e') == 'js' then
+        vim.cmd("silent !prettier --write %")
+      elseif vim.fn.expand('%:e') == 'go' then
+        vim.cmd("silent !gofmt -w %")
+      end
+    end,
+  }
+)
+
 -- below are claude's keybinds, TODO: check if they make sense
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
