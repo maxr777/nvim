@@ -101,4 +101,8 @@ return {
       vim.g.gruvbox_material_palette = 'material'
     end
   },
+  {
+    'akinsho/toggleterm.nvim', version = "*",
+      opts = {}
+  },
 }

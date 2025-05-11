@@ -40,6 +40,13 @@ vim.api.nvim_create_autocmd(
   }
 )
 
+vim.keymap.set('n', '<C-\\>', '<cmd>ToggleTerm direction=float<cr>', { noremap = true, silent = true })
+
+exitTerm = function()
+  vim.cmd(":ToggleTerm");
+end
+vim.keymap.set("t", "<C-\\>", exitTerm)
+
 -- below are claude's keybinds, TODO: check if they make sense
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
