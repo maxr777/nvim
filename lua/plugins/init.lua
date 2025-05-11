@@ -80,6 +80,18 @@ return {
     end
   },
   {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup()
+    end,
+  },
+  {
+    'folke/which-key.nvim',
+    config = function()
+      require('which-key').setup()
+    end,
+  },
+  {
     "nyoom-engineering/oxocarbon.nvim",
     name = "oxocarbon",
     priority = 1000,
