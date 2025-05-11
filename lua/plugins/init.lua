@@ -25,7 +25,7 @@ return {
     config = function()
       require('lualine').setup({
         options = {
-          theme = "palenight",
+          theme = "auto",
         },
       })
     end
@@ -59,7 +59,7 @@ return {
       -- Example setups (Lua, C/C++, etc.)
       lspconfig.lua_ls.setup({})
       lspconfig.clangd.setup({})
-      lspconfig.tsserver.setup({})
+      lspconfig.ts_ls.setup({})
       lspconfig.html.setup({})
     end
   },
