@@ -5,26 +5,26 @@ vim.g.maplocalleader = "\\"
 -- Use the system clipboard
 vim.opt.clipboard = "unnamedplus"
 
--- Use 2 spaces per indentation level
+-- Indent settings
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
--- Indent selected text
+-- Indent selection
 vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
 
--- Map the nvim-tree toggle key
+-- nvim-tree
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 -- Column at 80 characters
 vim.opt.colorcolumn = "80"
 
-
 vim.keymap.set("n", "<leader>ld", function()
   vim.diagnostic.open_float(nil, { border = "rounded", max_width = 80 })
 end, { desc = "Show diagnostics in floating window" })
 
+-- format-on-save
 vim.api.nvim_create_autocmd(
   "BufWritePost",
   {
@@ -45,14 +45,24 @@ vim.api.nvim_create_autocmd(
   }
 )
 
+-- Resize splits
+vim.keymap.set("n", "<C-Up>", ":resize +1<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Down>", ":resize -1<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Left>", ":vertical resize -1<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +1<CR>", { noremap = true, silent = true })
+
+-- ToggleTerm
 vim.keymap.set('n', '<C-\\>', '<cmd>ToggleTerm direction=float<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<F7>', '<cmd>ToggleTerm direction=horizontal<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<F8>', '<cmd>ToggleTerm direction=vertical<cr>', { noremap = true, silent = true })
+vim.keymap.set('t', '<C-\\>', '<cmd>ToggleTerm<cr>', { noremap = true, silent = true })
+vim.keymap.set('t', '<F7>', '<cmd>ToggleTerm direction=horizontal<cr>', { noremap = true, silent = true })
+vim.keymap.set('t', '<F8>', '<cmd>ToggleTerm direction=vertical<cr>', { noremap = true, silent = true })
 
-exitTerm = function()
-  vim.cmd(":ToggleTerm");
-end
-vim.keymap.set("t", "<C-\\>", exitTerm)
+-- Map <Esc> in terminal mode to switch to normal mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 
--- below are claude's keybinds, TODO: check if they make sense
+-- LSP
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
 vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename)
@@ -64,18 +74,21 @@ vim.opt.signcolumn = "yes"     -- Always show sign column for LSP diagnostics
 vim.opt.updatetime = 250       -- Faster updates for gitsigns and diagnostics
 vim.opt.timeoutlen = 300       -- Shorter timeout for which-key
 
+-- Split switching
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true })
 
+-- Buffer navigation
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { noremap = true, silent = true })
 
+-- Search settings
 vim.opt.ignorecase = true      -- Case-insensitive search
 vim.opt.smartcase = true       -- Unless uppercase is present
-vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>', { noremap = true, silent = true }) -- Esc clears the search highlight without canceling the search
 
 -- Load plugin manager
 require("config.lazy")
