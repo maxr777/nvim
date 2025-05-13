@@ -20,6 +20,11 @@ vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent
 -- Column at 80 characters
 vim.opt.colorcolumn = "80"
 
+
+vim.keymap.set("n", "<leader>ld", function()
+  vim.diagnostic.open_float(nil, { border = "rounded", max_width = 80 })
+end, { desc = "Show diagnostics in floating window" })
+
 vim.api.nvim_create_autocmd(
   "BufWritePost",
   {
@@ -50,8 +55,8 @@ vim.keymap.set("t", "<C-\\>", exitTerm)
 -- below are claude's keybinds, TODO: check if they make sense
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
+vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename)
+vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action)
 
 vim.opt.relativenumber = true  -- Relative line numbers
 vim.opt.scrolloff = 8          -- Keep cursor 8 lines from screen edge while scrolling
