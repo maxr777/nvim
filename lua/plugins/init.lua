@@ -125,4 +125,13 @@ return {
 			})
 		end,
 	},
+	{
+		"tpope/vim-surround",
+	},
+	{
+		"unblevable/quick-scope",
+	},
+	{
+		"mbbill/undotree",
+	},
 }

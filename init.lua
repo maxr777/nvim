@@ -26,6 +26,9 @@ vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 -- Map <Esc> in terminal mode to switch to normal mode
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
 
+-- undotree
+vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
+
 -- Split switching
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true })
