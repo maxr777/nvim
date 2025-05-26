@@ -121,6 +121,7 @@ return {
 					cpp = { "clang-format" },
 					lua = { "stylua" },
 					python = { "black" },
+					js = { "eslint_d" },
 				},
 			})
 		end,

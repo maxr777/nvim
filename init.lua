@@ -14,6 +14,12 @@ vim.keymap.set("n", "<C-Down>", ":resize -1<CR>", { noremap = true, silent = tru
 vim.keymap.set("n", "<C-Left>", ":vertical resize -1<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-Right>", ":vertical resize +1<CR>", { noremap = true, silent = true })
 
+-- Split switching
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true })
+
 -- Indent settings
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -28,12 +34,6 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
 
 -- undotree
 vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
-
--- Split switching
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true })
 
 -- Buffer navigation
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
