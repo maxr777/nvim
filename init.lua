@@ -1,4 +1,5 @@
 vim.opt.relativenumber = true -- Relative line numbers
+vim.opt.number = true
 vim.opt.scrolloff = 8 -- Keep cursor 8 lines from screen edge while scrolling
 vim.opt.signcolumn = "yes" -- Always show sign column for LSP diagnostics
 vim.opt.updatetime = 250 -- Faster updates for gitsigns and diagnostics
