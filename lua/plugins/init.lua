@@ -122,6 +122,8 @@ return {
 					lua = { "stylua" },
 					python = { "black" },
 					js = { "eslint_d" },
+					html = { "prettier" },
+					css = { "prettier" },
 				},
 			})
 		end,
